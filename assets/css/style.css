@@ -1,0 +1,25 @@
+.color {
+    background-color: aqua;
+}
+.dark-grey {
+    background-color: #282828;
+    border: none;
+}
+#default-text-color {
+    color: white;
+}
+.nav-group{
+    font-size: x-large;
+    height: 50px;
+}
+.grid-container {
+    width: 80%;
+    background-color: white;
+    height: 7px;
+  }
+ body{
+    border-top: 35px solid black;
+  }
+  header {
+    height: 150px;
+  }
