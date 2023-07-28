@@ -1,6 +1,7 @@
 :root{
     --dark-grey:  #282828;
     --vanilla: #f1ede2;
+    --green: rgb(111, 135, 111);
 }
 
 .color {
@@ -119,6 +120,7 @@ footer li{
     height: 30px;
 }
 .detail-box label{
+    font-size: small;
     padding: 0;
 }
 .map-search-box{
@@ -127,5 +129,25 @@ footer li{
 
 .detail-box{
    margin-left: 10px;
-    width: 91px;
+    width: 110px;
+}
+
+.zip-form{
+    width: 95px;
+}
+.city-form{
+    width: 150px;
+}
+.submit-form{
+    width: 80px;
+}
+
+.map {
+    width: 90vw;
+    height: 90vw;
+    max-width: 1000px;
+    max-height: 1000px;
+    background-color: var(--vanilla) ;
+    align-items: center;
+    border: 10px solid var(--green);
 }
