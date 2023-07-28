@@ -6,4 +6,12 @@ let distanceRadius = document.querySelector("#distanceRadius");
 let submitBtn = document.querySelector("#searchBtn");
 let distanceRadiusChange = 0;
 
-// Block of code copied from Google's maps platform
+
+//Smooth scroll on how-to
+document.getElementById("how-to-link").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  const targetElement = document.getElementById("class-card-section");
+
+  targetElement.scrollIntoView({ behavior: "smooth" });
+});
