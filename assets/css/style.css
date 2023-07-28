@@ -108,3 +108,24 @@ footer li{
     color: #fff;
     border-bottom:2px solid #fff;
 }
+
+.detail-box input{
+    padding: 0%;
+    height: 30px;
+
+}
+.detail-box select{
+    padding: 0%;
+    height: 30px;
+}
+.detail-box label{
+    padding: 0;
+}
+.map-search-box{
+    display: flex;
+}
+
+.detail-box{
+   margin-left: 10px;
+    width: 90px;
+}
