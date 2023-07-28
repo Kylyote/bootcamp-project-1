@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Ignore DS_Store from the dirty Macs
+.DS_Store
+
+#Ignore .vscode files, might break live server
+.vscode
