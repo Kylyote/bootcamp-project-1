@@ -6,6 +6,7 @@ let distanceRadius = document.querySelector("#distanceRadius");
 let submitBtn = document.querySelector("#searchBtn");
 let distanceRadiusChange = 0;
 
+
 //Smooth scroll on how-to
 document.getElementById("how-to-link").addEventListener("click", function (event) {
   event.preventDefault();
@@ -14,17 +15,3 @@ document.getElementById("how-to-link").addEventListener("click", function (event
 
   targetElement.scrollIntoView({ behavior: "smooth" });
 });
-
-// Block of code copied from Google's maps platform
-let map;
-
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
-
-initMap();
