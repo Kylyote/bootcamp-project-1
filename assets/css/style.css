@@ -38,18 +38,15 @@
   }
   
   .overlay-form {
-    position: absolute;
     z-index: 1;
-    top: 50%;   
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(0%);
   }
  
 
   .hero-section {
     background: url(/assets/images/background-op2.jpg) 50% no-repeat;
     background-size: cover;
-    height: 30vh;
+    height: 50vh;
     text-align: center;
     display: flex;
     align-items: center;
@@ -57,12 +54,12 @@
 }
 .search-box {
     border-radius: 15px;
-    /* box-shadow: 0 0 8px 8px var(--dark-grey); */
+    box-shadow: 0 0 4px 4px rgb(91, 115, 91);
     background-color: whitesmoke;
 }
 
 .article-container{
-    margin-top: 150px;
+    margin-top: 100px;
     background-color: transparent;
 }
 .article .card{
@@ -80,12 +77,13 @@
 }
 
 
-
+main {
+    margin-bottom: 100vh;
+}
 
 footer{
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    
     margin-top: 100px;
     color: #fff;
 }
