@@ -16,12 +16,13 @@ document.getElementById("how-to-link").addEventListener("click", function (event
 });
 
 function fetchWeatherData(city, apiKey) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}units=imperial`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   // PUT IN WEATHER, TEMPERATURE, AND WIND SPEED  
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
+      console.log(data)
       const windSpeedMeters = data.wind.speed;
       const temperatureFahrenheit = data.main.temp;
       const humidity = data.main.humidity;
@@ -43,19 +44,19 @@ function fetchWeatherData(city, apiKey) {
 }
 
 // Block of code copied from Google's maps platform
-let map;
+// let map;
 
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
+// async function initMap() {
+//   const { Map } = await google.maps.importLibrary("maps");
 
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
+//   map = new Map(document.getElementById("map"), {
+//     center: { lat: -34.397, lng: 150.644 },
+//     zoom: 8,
+//   });
+// }
 
-const apiKey = 'de499e2ee729b13656959965fb76984a';
+const apiKey = '3345d74a687b8041b547bb45348451f6';
 const city = 'Sacramento';
 fetchWeatherData(city, apiKey);
 
-initMap();
+
