@@ -15,3 +15,51 @@ document.getElementById("how-to-link").addEventListener("click", function (event
 
   targetElement.scrollIntoView({ behavior: "smooth" });
 });
+
+
+function fetchWeatherData(city, apiKey) {
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+  // PUT IN WEATHER, TEMPERATURE, AND WIND SPEED  
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      const windSpeedMeters = data.wind.speed;
+      const temperatureFahrenheit = data.main.temp;
+      const humidity = data.main.humidity;
+      const weatherConditions = data.weather[0].description;
+
+      console.log("Wind Speed:", windSpeedMeters);
+      console.log("Temperature:", temperatureFahrenheit);
+      console.log("Humidity:", humidity);
+      console.log("Weather Conditions:", weatherConditions);
+
+      document.getElementById("windSpeed").textContent = `Wind Speed: ${windSpeedMeters.toFixed(2)} m/s`;
+      document.getElementById("temperature").textContent = `Temperature: ${temperatureFahrenheit.toFixed(2)} F`;
+      document.getElementById("humidity").textContent = `Humidity: ${humidity}%`;
+      document.getElementById("weatherConditions").textContent = `Weather Conditions: ${weatherConditions}`;
+    })
+    .catch(error => {
+      console.error('Error fetching weather data:', error);
+    });
+}
+
+// Block of code copied from Google's maps platform
+// let map;
+
+// async function initMap() {
+//   const { Map } = await google.maps.importLibrary("maps");
+
+//   map = new Map(document.getElementById("map"), {
+//     center: { lat: -34.397, lng: 150.644 },
+//     zoom: 8,
+//   });
+// }
+
+const apiKey = '3345d74a687b8041b547bb45348451f6';
+const city = 'Sacramento';
+fetchWeatherData(city, apiKey);
+
+
+
