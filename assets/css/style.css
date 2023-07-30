@@ -85,10 +85,12 @@
   .overlay-form {
     z-index: 1;
     transform: translate(0%);
-   
     max-height: 850px;
-    width: 310px;
     margin: 8px;
+  }
+
+  .maps-overlay-form{
+    width: 310px;
   }
 
  #maps-form{
