@@ -1,88 +1,207 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width" initial-scale="1.0"/>
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-        <title></title>
-        <link>
-        <link>
-        <link>
-        <link>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="./assets/css/style.css"/>
-    </head>
-    <body id="default-text-color" >
-        
-        <header class="dark-grey">
-            <div class="grid-x dark-grey" >
-                <div class="title-area float-center">
-                  <div class="name-of-site">
-                    <a href="#"><h1 id="default-text-color" class="text-center">Natural Spaces</h1></a>
-                  </div>
-                 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" initial-scale="1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+    <link />
+    <link />
+    <link />
+    <link />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/map.js"></script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA&callback=initMap&libraries=&v=weekly"
+      defer></script>
+  </head>
+  <body id="default-text-color">
+    <header class="dark-grey">
+      <div class="grid-x dark-grey">
+        <div class="title-area float-center">
+          <div class="name-of-site">
+            <a href="#"
+              ><h1 id="default-text-color" class="text-center">
+                Natural Spaces
+              </h1></a
+            >
+          </div>
+        </div>
+      </div>
+      <nav>
+        <section>
+          <div class="text-center grid-container">
+            <!-- Bar content goes here -->
+          </div>
+          <div class="grid-x align-spaced dark-grey">
+            <!-- Aligned to the space around -->
+            <a href="maps.html" id="maps-link" class="cell text-center small-2 nav-group maps-nav">Maps</a>
+            <a href="index.html" id="home-link" class="cell text-center small-2 nav-group home-nav">Home</a>
+            <a href="#" id="how-to-link" class="cell small-2 text-center nav-group how-to-nav">How-to</a>
+            </div>
+          </div>
+        </section>
+      </nav>
+    </header>
+  <main>
+      <section class="map float-center">
+        <div class="container float-center">
+          <div id="gmp-map"></div>
+           <div class="overlay-results">
+        <div class="form-section overlay-form top-to-bottom maps-overlay-form">
+          <form class="search-box card float-left" id="maps-form"style="width: 310px; height: 60px;">
+            <div class="location-form">
+              <div class="map-search-box">
+                <div class="detail-box city-form">
+                  <label
+                    class="text-center"
+                    for="city-form-input
+                  "
+                    >City Name</label
+                  >
+                  <input
+                    type="text"
+                    class="search-form-input float-center"
+                    style="width: 100%"
+                    id="city-form-input
+                   " />
+
                 </div>
-              </div>
-            <nav>
-                <section>
-                    <div class="text-center grid-container">
-                        <!-- Bar content goes here -->
-                      </div>
-                    <div class="grid-x  align-spaced dark-grey"> <!-- Aligned to the space around -->
-                      <a href="maps.html" id="maps-link" class="cell text-center small-2 nav-group maps-nav">Maps</a>
-                        <a href="index.html" id="home-link" class="cell text-center small-2 nav-group home-nav">Home</a>
-                    
-                          <a href="#" id="how-to-link" class="cell small-2 text-center nav-group how-to-nav">How-to</a>
-                        
-                </section>
-            </nav>
-        </header>
-<main>
-        
-    
-       <div class="form-section overlay-form" >
-        
-    <form class="search-box card float-left" style="width: 500px;"  >
-                <div class="location-form" >
-                 
-                  
-        <div class="map-search-box">
+
+                <div class="detail-box zip-form">
+                  <label class="text-center" for="zip-form-input"
+                    >Zip Code</label
+                  >
+                  <input
+                    type="text"
+                    style="width: 100%"
+                    class="search-form-input float-center"
+                    id="zip-form-input
+                  " />
+                </div>
                 <div class="detail-box">
-                  <label class="text-center"  for="city-form-input
-                  ">City Name</label>
-                  <input type="text" class="search-form-input
-                   float-center" style="width: 100%;" id="city-form-input
-                   ">
-                </div>
-            
-       
-                <div class="detail-box"> 
-                    <label class="text-center" for="zip-form-input" >Zip Code</label>
-                  <input type="text" style="width: 100%;" class="search-form-input
-                   float-center" id="zip-form-input
-                  ">
-                </div>
-<div class="detail-box">
-                <label class="text-center" for="distance-radius" >Radius (mi)</label>
-                <select name="distance" style="width:100%;" id="distance-radius" class="search-form-input float-center" >
+                  <label class="text-center" for="distance-radius"
+                    >Radius (mi)</label
+                  >
+                  <select
+                    name="distance"
+                    style="width: 100%"
+                    id="distance-radius"
+                    class="search-form-input float-center">
                     <option value="5">1</option>
                     <option value="5">5</option>
                     <option value="5">10</option>
                     <option value="5">15</option>
-                </select>
+                  </select>
+                </div>
+                <div class="detail-box submit-form">
+                  <button
+                    type="submit"
+                    class="float-center sign-in-form-button">
+                    Search
+                  </button>
+                </div>
+              </div>
             </div>
-                <div class="detail-box">
-                  <button type="submit" class="float-center sign-in-form-button">Search</button>
+          </form>
+          <section style="color: black;" class="search-outputs">
+            <div class="output">
+                <div class="mini-box side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div>
+                <div class="expanded-box more-location-info">
+                   
+                    <p class="more-info"id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur nam esse maxime atque ipsam, quam numquam natus dolorem non, sit autem, molestias in eos necessitatibus. Illum, voluptate.</p>
+                    <p class="more-info"id="hours">9am-5pm</p>
+                    <div class="side-by-side">
+                    <p class="more-info">Website:</p>
+                    <p class="more-info"id="website">something.com</p>
+                    </div>
+                    
+                    <p class="more-info"d="go-to">open in google maps</p>
                 </div>
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div>
+                <div class="expanded-box more-location-info hide">
+                    <p class="more-info"id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur nam esse maxime atque ipsam, quam numquam natus dolorem non, sit autem, molestias in eos necessitatibus. Illum, voluptate.</p>
+                    <p class="more-info"id="hours">9am-5pm</p>
+                    <div class="side-by-side">
+                    <p class="more-info">Website:</p>
+                    <p class="more-info"id="website">something.com</p>
+                    </div>
+                    
+                    <p class="more-info"d="go-to">open in google maps</p>
+                </div>  
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+              <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+          </section>
         </div>
-                </div>
-    </form>
+      </div>
+        </div>
+       
+      </section>
+     
+      
+      <section class="weather-data" style="color: black; background-color: violet;">
+        <div class="temp-data">Temperature goes here</div>
+        <div class="wind-data">Wind speed goes here</div>
+        <div class="humidity-data">Humidity data goes here</div>
+        <div class="weather-description-data">Weather descritpion goes here</div>
+      </section>
 
-    </div>
- </div>
-
-<section class="grid-x grid-margin-x align-spaced float-center">
-    <!-- <div class="media-object  stack-for-small">
+      <section class="grid-x grid-margin-x align-spaced float-center">
+        <!-- <div class="media-object  stack-for-small">
         <div class="media-object-section">
           <div class="thumbnail">
             <img style="height: 200px; width: 300px;" src= "assets/images/woodsy-background.jpg">
@@ -127,29 +246,23 @@
            <img src="/assets/images/woodsy-background.jpg">
             </a>
             <p>This is a description of the article</p>
+
           </div>
         </div>
+      </section>
+    </main>
+
+    <footer class="dark-grey">
+      <div class="text-center">
+        <p>Natural Spaces</p>
+        <ul class="align-center">
+          <li><a style="color: white" href="">maps</a></li>
+          <li><a style="color: white" href="">home</a></li>
+          <li><a style="color: white" href="">how-to</a></li>
+        </ul>
       </div>
-   
- 
+    </footer>
 
-</div>
-</div>
-</section>
-</main>
-
-
- <footer class="dark-grey">
-            <div class=" text-center">
-                <p>Natural Spaces</p>
-                <ul class="align-center">
-                  <li><a style="color: white;" href="">maps</a></li>
-                  <li><a style="color: white;"href="">home</a></li>
-                  <li><a style="color: white;"href="">how-to</a></li>
-                </ul>
-            </div>
-        </footer>
-       
-        <script src="./assets/js/script.js"></script>
-    </body>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

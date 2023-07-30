@@ -6,6 +6,7 @@ let distanceRadius = document.querySelector("#distanceRadius");
 let submitBtn = document.querySelector("#searchBtn");
 let distanceRadiusChange = 0;
 
+
 //Smooth scroll on how-to
 document.getElementById("how-to-link").addEventListener("click", function (event) {
   event.preventDefault();
@@ -14,6 +15,7 @@ document.getElementById("how-to-link").addEventListener("click", function (event
 
   targetElement.scrollIntoView({ behavior: "smooth" });
 });
+
 
 function fetchWeatherData(city, apiKey) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
@@ -58,5 +60,6 @@ function fetchWeatherData(city, apiKey) {
 const apiKey = '3345d74a687b8041b547bb45348451f6';
 const city = 'Sacramento';
 fetchWeatherData(city, apiKey);
+
 
 
