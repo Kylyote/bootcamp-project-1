@@ -8,10 +8,10 @@ let distanceRadiusChange = 0;
 
 
 //Smooth scroll on how-to
-document.getElementById("how-to-link").addEventListener("click", function (event) {
+document.querySelector("#how-to-link").addEventListener("click", function (event) {
   event.preventDefault();
 
-  const targetElement = document.getElementById("class-card-section");
+  const targetElement = document.querySelector(".card-section");
 
   targetElement.scrollIntoView({ behavior: "smooth" });
 });
@@ -35,10 +35,10 @@ function fetchWeatherData(city, apiKey) {
       console.log("Humidity:", humidity);
       console.log("Weather Conditions:", weatherConditions);
 
-      document.getElementById("windSpeed").textContent = `Wind Speed: ${windSpeedMeters.toFixed(2)} m/s`;
-      document.getElementById("temperature").textContent = `Temperature: ${temperatureFahrenheit.toFixed(2)} F`;
-      document.getElementById("humidity").textContent = `Humidity: ${humidity}%`;
-      document.getElementById("weatherConditions").textContent = `Weather Conditions: ${weatherConditions}`;
+      document.querySelector(".wind-data").textContent = `Wind Speed: ${windSpeedMeters.toFixed(2)} m/s`;
+      document.querySelector(".temp-data").textContent = `Temperature: ${temperatureFahrenheit.toFixed(2)} F`;
+      document.querySelector(".humidity-data").textContent = `Humidity: ${humidity}%`;
+      document.querySelector(".weather-description-data").textContent = `Weather Conditions: ${weatherConditions}`;
     })
     .catch(error => {
       console.error('Error fetching weather data:', error);
@@ -51,7 +51,7 @@ function fetchWeatherData(city, apiKey) {
 // async function initMap() {
 //   const { Map } = await google.maps.importLibrary("maps");
 
-//   map = new Map(document.getElementById("map"), {
+//   map = new Map(document.querySelector("map"), {
 //     center: { lat: -34.397, lng: 150.644 },
 //     zoom: 8,
 //   });
