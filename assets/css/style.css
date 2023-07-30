@@ -26,13 +26,15 @@
 }
 
 /* Map container ID. Please don't break this. */
-#gmp-map {
+#gmp-map { 
+  margin-top: 65px;
   width: 90vw;
   height: 90vw;
   max-width: 1000px;
   max-height: 1000px;
   background-color: grey;
   border: 10px solid var(--green);
+  border-radius: 12px;
 }
 
 /* Grid Container */
@@ -56,12 +58,26 @@
     justify-content: center;
     align-items: center;
   }
-  
+  /* this is for the search box and results for the map page */
   .overlay-form {
     z-index: 1;
     transform: translate(0%);
+    height: 75vw;
+    max-height: 850px;
+    width: 310px;
   }
  
+  .overlay-results{
+    position: absolute;
+    top: 320px;
+
+    max-width: 1000px;
+    height: 75vw;
+    max-height: 850px;
+    background-color: var(--vanilla);
+    border: 5px solid var(--dark-grey);
+    border-radius: 15px;
+  }
   #maps-link {
     color: inherit;
     text-decoration: none;

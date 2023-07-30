@@ -1,6 +1,7 @@
 // Google code for getting a map.
 "use strict";
 
+
 function initMap() {
   let myLatLng = {
     lat: 38.5367299382404,
@@ -11,11 +12,20 @@ function initMap() {
     center: myLatLng,
     fullscreenControl: false,
     zoomControl: true,
-    streetViewControl: true
+    streetViewControl: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      position: google.maps.ControlPosition.TOP_RIGHT,
+    },
   });
   new google.maps.Marker({
     position: myLatLng,
-    map,
-    title: "My location"
+    icon: {
+      url: './assets/images/parkIcon.svg',
+     
+    },
+    title: "My location",
+    map: map
   });
 }
