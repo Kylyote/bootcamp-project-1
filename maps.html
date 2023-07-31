@@ -50,13 +50,13 @@
     </header>
   <main>
       <section class="map float-center">
-        <div class="container float-center">
+        
           <div id="gmp-map"></div>
-        </div>
-      </section>
-      <div class="overlay-results">
-        <div class="form-section overlay-form">
-          <form class="search-box card float-left" style="width: 310px">
+    <div class="include-weather-data ">
+           <div class="overlay-results side-by-side">
+                 <div class="form-section overlay-form  maps-overlay-form">
+                    <div class="top-to-bottom">
+                        <form class="search-box card float-left" id="maps-form"style="width: 310px; height: 60px;">
             <div class="location-form">
               <div class="map-search-box">
                 <div class="detail-box city-form">
@@ -110,16 +110,105 @@
                 </div>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
-      
-      <section class="weather-data" style="color: black; background-color: violet;">
-        <div class="temp-data">Temperature goes here</div>
-        <div class="wind-data">Wind speed goes here</div>
-        <div class="humidity-data">Humidity data goes here</div>
-        <div class="weather-description-data">Weather descritpion goes here</div>
+                        </form>
+
+                        <section style="color: black;" class="search-outputs">
+            <div class="output">
+                <div class="mini-box side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div>
+                <div class="expanded-box more-location-info">
+                   
+                    <p class="more-info"id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur nam esse maxime atque ipsam, quam numquam natus dolorem non, sit autem, molestias in eos necessitatibus. Illum, voluptate.</p>
+                    <p class="more-info"id="hours">9am-5pm</p>
+                    <div class="side-by-side">
+                    <p class="more-info">Website:</p>
+                    <p class="more-info"id="website">something.com</p>
+                    </div>
+                    
+                    <p class="more-info"d="go-to">open in google maps</p>
+                </div>
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div>
+                <div class="expanded-box more-location-info hide">
+                    <p class="more-info"id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur nam esse maxime atque ipsam, quam numquam natus dolorem non, sit autem, molestias in eos necessitatibus. Illum, voluptate.</p>
+                    <p class="more-info"id="hours">9am-5pm</p>
+                    <div class="side-by-side">
+                    <p class="more-info">Website:</p>
+                    <p class="more-info"id="website">something.com</p>
+                    </div>
+                    
+                    <p class="more-info"d="go-to">open in google maps</p>
+                </div>  
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+            <div class="output">
+                <div class="mini-box-justforxample side-by-side align-spaced">
+                <p class="location-title">Title of park</p>
+                <p class="distance">7.5mi</p>
+            </div> 
+            </div>
+                        </section>
+                    </div>
+          
+                 </div>
+                 <section id="weather-data" style="color: rgb(255, 255, 255);">
+                <div class="weather-description-data">Weather descritpion goes here</div>
+                <div class="weather-icon"><img src="./assets/images/weatherIcons/rainy.svg" alt=""></div>
+                <div class="temp-data">Temperature goes here</div>
+                <div class="wind-data">Wind speed goes here</div>
+                <div class="humidity-data">Humidity data goes here</div>
+              
+            </section>
+            </div>
+            
+    </div>
+        
+       
       </section>
+     
+      
+      
 
       <section class="grid-x grid-margin-x align-spaced float-center">
         <!-- <div class="media-object  stack-for-small">
