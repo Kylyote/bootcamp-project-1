@@ -82,7 +82,7 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   var request = {
     location: myLatLng,
-    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VAR
+    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VARIABLE BASED ON USER INPUT
     keyword: 'parks' // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS
   };
 
