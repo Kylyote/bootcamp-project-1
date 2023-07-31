@@ -15,10 +15,8 @@
       crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="./assets/js/map.js"></script>
-    <script
-      async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA&callback=initMap&libraries=&v=weekly"
-      defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA&libraries=places&callback=initMap"></script>
+    
   </head>
   <body id="default-text-color">
     <header class="dark-grey">
@@ -102,11 +100,11 @@
                   </select>
                 </div>
                 <div class="detail-box submit-form">
-                  <button
-                    type="submit"
-                    class="float-center sign-in-form-button">
+                  <div
+                    
+                    class="float-center sign-in-form-button" onclick="runSearch()">
                     Search
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -193,11 +191,11 @@
           
                  </div>
                  <section id="weather-data" style="color: rgb(255, 255, 255);">
-                <div class="weather-description-data">Weather descritpion goes here</div>
-                <div class="weather-icon"><img src="./assets/images/weatherIcons/rainy.svg" alt=""></div>
-                <div class="temp-data">Temperature goes here</div>
-                <div class="wind-data">Wind speed goes here</div>
-                <div class="humidity-data">Humidity data goes here</div>
+                <div class="weather-description-data"></div>
+                <div class="weather-icon"></div>
+                <div class="temp-data"></div>
+                <div class="wind-data"></div>
+                <div class="humidity-data"></div>
               
             </section>
             </div>
