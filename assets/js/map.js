@@ -5,7 +5,7 @@ var longi = '-121.75132258093318'
 //code for response from Zip -CF
 const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
 
-const testZipCode = '95747';
+const testZipCode = '95610';
 
 function runSearch(){
 fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${testZipCode}&key=${mapApiKey}`)
@@ -62,8 +62,8 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   var request = {
     location: myLatLng,
-    radius: 1000, // Example radius: 1000 meters
-    keyword: 'parks' // search term "park" "hike"
+    radius: 1000, // Example radius: 1000 meters NEED TO MAKE THIS A CHANGABLE VAR
+    keyword: 'parks' // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS
   };
 
   service.nearbySearch(request, callback);
