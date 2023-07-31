@@ -1,4 +1,4 @@
-
+//sets initial search location and eventually radius -CF
 var lati = '38.5367299382404'
 var longi = '-121.75132258093318'
 
@@ -11,7 +11,7 @@ function runSearch(){
 fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${testZipCode}&key=${mapApiKey}`)
   .then(response => response.json())
   .then(data => {
-    // geodata from the response
+    // geodata from the response -CF
     const city = data.results[0].address_components[1].long_name;
     const state = data.results[0].address_components[2].short_name;
     var latitude = data.results[0].geometry.location.lat;
@@ -62,7 +62,7 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   var request = {
     location: myLatLng,
-    radius: 1000, // Example radius: 1000 meters NEED TO MAKE THIS A CHANGABLE VAR
+    radius: 1000, // meters NEED TO MAKE THIS A CHANGABLE VAR
     keyword: 'parks' // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS
   };
 
