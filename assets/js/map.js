@@ -7,11 +7,30 @@ const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
 
 const testZipCode = '95610';
 
+// this is the function to actually kicks off the start of the search -CF 
+// I decided to prioritize ZIP Code because it is usually more accurate, however, if there is no ZIP Code, it will default to city
 function runSearch(){
-fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${testZipCode}&key=${mapApiKey}`)
+const userCity = document.querySelector('#city-form-input').value;
+console.log(userCity)
+
+const userZip = document.querySelector('#zip-form-input').value;
+
+if (userZip !== "") {
+runWithUserInput(userZip)
+  console.log(userZip)
+  } else if (userCity !== ""){
+  runWithUserInput(userCity)
+  console.log(userCity)
+  }
+}
+// console.log(userCity)
+
+// function for running research with user input-CF 
+function runWithUserInput (userInput){
+fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&key=${mapApiKey}`)
   .then(response => response.json())
   .then(data => {
-    // geodata from the response -CF
+    // geo-data from the response -CF
     const city = data.results[0].address_components[1].long_name;
     const state = data.results[0].address_components[2].short_name;
     var latitude = data.results[0].geometry.location.lat;
@@ -30,7 +49,8 @@ fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${testZipCode}&
   })
   .catch(error => {
     console.error('Error:', error);
-  })};
+  });
+}
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Google code for getting a map.
 "use strict";
@@ -62,7 +82,7 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   var request = {
     location: myLatLng,
-    radius: 1000, // meters NEED TO MAKE THIS A CHANGABLE VAR
+    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VAR
     keyword: 'parks' // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS
   };
 
