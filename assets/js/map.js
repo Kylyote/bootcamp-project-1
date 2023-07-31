@@ -4,7 +4,7 @@
 
 function initMap() {
   let myLatLng = {
-    lat: 38.5367299382404,
+    lat:  38.5367299382404,
     lng: -121.75132258093318
   };
   let map = new google.maps.Map(document.getElementById("gmp-map"), {
@@ -31,3 +31,24 @@ function initMap() {
     map: map
   });
 }
+
+const testZipCode = '92102';
+
+fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${testZipCode}&key=${apiKey}`)
+  .then(response => response.json())
+  .then(data => {
+    // geodata from the response
+    const city = data.results[0].address_components[1].long_name;
+    const state = data.results[0].address_components[2].short_name;
+    const latitude = data.results[0].geometry.location.lat;
+    const longitude = data.results[0].geometry.location.lng;
+
+   
+    console.log(`City: ${city}`);
+    console.log(`State: ${state}`);
+    console.log(`Latitude: ${latitude}`);
+    console.log(`Longitude: ${longitude}`);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });

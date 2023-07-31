@@ -135,11 +135,20 @@
   }
  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
  /* result mini box */
+
+
  /* purely visual testing start */
 .mini-box-justforxample{
     background-color: rgb(176, 193, 176);
     border: 4px solid var(--green);
     border-radius: 15px;
+}
+.mini-box-justforxample:hover{
+    background-color: #f1ede2;
+    cursor: pointer;
+}
+.mini-box-justforxample:active{
+    background-color: rgb(170, 172, 171);
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* purely visual testing end */
@@ -165,6 +174,14 @@
     border-radius: 15px 15px 0 0  ;
     border-bottom: none;
 } 
+.mini-box:hover{
+    background-color: #f1ede2;
+    cursor: pointer;
+}
+.mini-box:active{
+    background-color: rgb(170, 172, 171);
+}
+
 .expanded-box{
     background-color: var(--vanilla);
     border-radius:  0 0 15px 15px ;
