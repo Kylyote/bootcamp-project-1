@@ -10,10 +10,10 @@ function initMap() {
   let map = new google.maps.Map(document.getElementById("gmp-map"), {
     zoom: 16,
     center: myLatLng,
-    fullscreenControl: false,
     zoomControl: true,
     streetViewControl: true,
     mapTypeControl: true,
+    fullscreenControl: false,
 //changes position of map view controls -CF
     mapTypeControlOptions: {
       style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
