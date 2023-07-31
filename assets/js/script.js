@@ -6,6 +6,7 @@ let distanceRadius = document.querySelector("#distanceRadius");
 let submitBtn = document.querySelector("#searchBtn");
 let distanceRadiusChange = 0;
 
+
 //Smooth scroll on how-to
 document.getElementById("how-to-link").addEventListener("click", function (event) {
   event.preventDefault();
@@ -14,6 +15,7 @@ document.getElementById("how-to-link").addEventListener("click", function (event
 
   targetElement.scrollIntoView({ behavior: "smooth" });
 });
+
 
 function fetchWeatherData(city, apiKey) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}units=imperial`;
@@ -41,21 +43,3 @@ function fetchWeatherData(city, apiKey) {
       console.error('Error fetching weather data:', error);
     });
 }
-
-// Block of code copied from Google's maps platform
-let map;
-
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
-
-const apiKey = 'de499e2ee729b13656959965fb76984a';
-const city = 'Sacramento';
-fetchWeatherData(city, apiKey);
-
-initMap();
