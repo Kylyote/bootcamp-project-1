@@ -35,10 +35,24 @@ function fetchWeatherData(city, apiKey) {
       console.log("Humidity:", humidity);
       console.log("Weather Conditions:", weatherConditions);
 
-      document.querySelector(".wind-data").textContent = `Wind Speed: ${windSpeedMeters.toFixed(2)} m/s`;
-      document.querySelector(".temp-data").textContent = `Temperature: ${temperatureFahrenheit.toFixed(2)} F`;
+      document.querySelector(".wind-data").textContent = `Wind: ${windSpeedMeters.toFixed(2)} m/s`;
+      document.querySelector(".temp-data").textContent = `${temperatureFahrenheit.toFixed(2)} °F`;
       document.querySelector(".humidity-data").textContent = `Humidity: ${humidity}%`;
-      document.querySelector(".weather-description-data").textContent = `Weather Conditions: ${weatherConditions}`;
+      document.querySelector(".weather-description-data").textContent = `${weatherConditions}`;
+
+      var weather = data.weather[0].main;
+            
+if (weather === 'Clouds'){
+document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/cloudy.svg" alt="">`;
+} else if (weather === 'Rain'){
+document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/rainy.svg" alt="">`;
+} else if (weather === 'Clear'){
+document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/sunny.svg" alt="">`;           
+} else if (weather === 'Snow'){
+document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/snow.svg" alt="">`;
+}
+       
+        
     })
     .catch(error => {
       console.error('Error fetching weather data:', error);
