@@ -275,7 +275,7 @@ header {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* Hero Section */
 .hero-section {
-  background: url(./assets/images/background-op2.jpg) 50% no-repeat;
+  background: url(../images/background-op2.jpg) 50% no-repeat;
   background-size: cover;
   height: 50vh;
   text-align: center;
