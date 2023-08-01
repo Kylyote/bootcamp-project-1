@@ -78,7 +78,7 @@ function initMap() {
     },
   });
 
-  //search for placees in a radius -CF
+  //search for places in a radius -CF
   var service = new google.maps.places.PlacesService(map);
   var request = {
     location: myLatLng,
@@ -90,9 +90,11 @@ function initMap() {
 
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
+      console.log("results length: " + results.length)
       for (var i = 0; i < results.length; i++) {
         var place = results[i];
        console.log(place)
+       
       }
     }
   }
