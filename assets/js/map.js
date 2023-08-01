@@ -56,22 +56,19 @@ fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&ke
 // Google code for getting a map.
 "use strict";
 
-
-
-
 function initMap() {
   let myLatLng = {
-    lat:  parseFloat(lati),
+    lat: parseFloat(lati),
     lng: parseFloat(longi)
   };
   console.log(myLatLng)
   let map = new google.maps.Map(document.getElementById("gmp-map"), {
     zoom: 16,
     center: myLatLng,
-    fullscreenControl: false,
     zoomControl: true,
     streetViewControl: true,
     mapTypeControl: true,
+    fullscreenControl: false,
 //changes position of map view controls -CF
     mapTypeControlOptions: {
       style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
@@ -83,8 +80,10 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   var request = {
     location: myLatLng,
-    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VARIABLE BASED ON USER INPUT -CF
-    keyword: 'parks' // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS -CF
+    // to convert miles to meters, multiply by 1609.34
+    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VARIABLE BASED ON USER INPUT
+    keyword: 'parks'
+    //type: ['park'] // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS
   };
 
   service.nearbySearch(request, callback);
@@ -94,10 +93,41 @@ function initMap() {
       console.log("results length: " + results.length)
       for (var i = 0; i < results.length; i++) {
         var place = results[i];
-       console.log(place)
-       
+        console.log(results.length);
+        console.log(place);
+        //Making object to feed into giveTitleDetails
+        let request = {
+          placeId: place.place_id,
+          fields: ['name','reviews','opening_hours','rating']
+        };
+        giveTitleDetails(request); 
       }
     }
+  }
+ 
+  //Code for getting details
+  function giveTitleDetails(request) {
+    service.getDetails(request,function(details, status){
+      if (status === google.maps.places.PlacesServiceStatus.OK)
+          console.log(details.length);
+          console.log(details);
+        let parkContent = `
+        <div class="mini-box-justforxample side-by-side align-spaced">
+            <p class="location-title">${details.name}</p>
+            <p class="distance">7.5mi</p>
+        </div>
+        <div class="expanded-box more-location-info">
+            <p class="more-info" id="description">${details.reviews[0].text}</p>
+            <p class="more-info" id="hours">9am-5pm</p>
+            <div class="side-by-side">
+                <p class="more-info">Website:</p>
+                <p class="more-info" id="website">something.com</p>
+            </div>
+            <p class="more-info" id="go-to">open in google maps</p>
+        </div>`;
+        let outputBox = document.querySelector(".output")
+        outputBox.innerHTML = parkContent;
+    });
   }
 
 //adds custom marker icon -CF
@@ -111,6 +141,4 @@ function initMap() {
     map: map
   });
 }
-
-
 
