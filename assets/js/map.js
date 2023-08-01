@@ -1,5 +1,6 @@
 //sets initial search location and eventually radius -CF
 let defaultLocation = '95616';
+let defaultRadius = '804'
 
 //code for response from Zip -CF
 const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
@@ -14,10 +15,10 @@ function runSearch(){
   const userZip = document.querySelector('#zip-form-input').value;
   
   if (userZip !== "") {
-    runWithUserInput(userZip)
+    runWithUserInput(userZip, userRadius)
     console.log(userZip)
   } else if (userCity !== ""){
-    runWithUserInput(userCity)
+    runWithUserInput(userCity, userRadius)
     console.log(userCity)
   }
   userCity.value="";
@@ -27,7 +28,7 @@ function runSearch(){
 // console.log(userCity)
 
 // function for running research with user input-CF 
-function runWithUserInput (userInput){
+function runWithUserInput (userInput, userRadius){
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&key=${mapApiKey}`)
   .then(response => response.json())
   .then(data => {
@@ -49,7 +50,7 @@ function runWithUserInput (userInput){
     let outputBox = document.querySelector("#search-details");
     outputBox.innerHTML = "";
     fetchWeatherData(latitude, longitude);
-    initMap(latitude, longitude)
+    initMap(latitude, longitude, userRadius);
   })
   .catch(error => {
     console.error('Error:', error);
@@ -59,7 +60,7 @@ function runWithUserInput (userInput){
 // Google code for getting a map.
 "use strict";
 
-function initMap() {
+function initMap(latitude, longitude, userRadius) {
   let myLatLng = {
     lat: parseFloat(lati),
     lng: parseFloat(longi)
@@ -83,8 +84,8 @@ function initMap() {
   
   var service = new google.maps.places.PlacesService(map);
   var keywords = ['park', 'hike', 'trail', 'nature preserve'];
-  var radius = 1000; //still nee to make this a variable
-  
+  var radius = userRadius; //still nee to make this a variable
+  console.log(userRadius+"radius");
   keywords.forEach(function(keyword) {
     var request = {
       location: myLatLng,
@@ -157,7 +158,7 @@ function initMap() {
 
 }
 
-runWithUserInput(defaultLocation);
+runWithUserInput(defaultLocation, defaultRadius);
 
 function makeYourMark(userLatLng, map, placeName){
   var marker = new google.maps.Marker({
