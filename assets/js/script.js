@@ -17,8 +17,8 @@ document.querySelector("#how-to-link").addEventListener("click", function (event
 });
 
 
-function fetchWeatherData(city, apiKey) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+function fetchWeatherData(latitude, longitude) {
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 
   // PUT IN WEATHER, TEMPERATURE, AND WIND SPEED  
   fetch(apiUrl)
@@ -43,7 +43,7 @@ function fetchWeatherData(city, apiKey) {
       var weather = data.weather[0].main;
             
 if (weather === 'Clouds'){
-document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/cloudy.svg" alt="">`;
+document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/overcast.svg" alt="">`;
 } else if (weather === 'Rain'){
 document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/rainy.svg" alt="">`;
 } else if (weather === 'Clear'){

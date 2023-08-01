@@ -45,6 +45,7 @@ fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&ke
     lati = latitude
     longi = longitude
 
+    fetchWeatherData(latitude, longitude);
     initMap(latitude, longitude)
   })
   .catch(error => {
