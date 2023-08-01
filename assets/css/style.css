@@ -119,8 +119,29 @@ header {
 .city-form {
   width: 150px;
 }
+.submit-form img{
+  width: 45px;
+  margin-left: 2px;
+  padding:2px;
+}
+
 .submit-form {
   width: 80px;
+  height: 80px;
+}
+.probablyDumbContainer{
+  border-radius: 30px 30px 30px 30px;
+  width: 50px;
+  height: 50px;
+  margin-top: 4px;
+}
+.probablyDumbContainer:hover{
+  width: 50px;
+  height: 50px;
+    background-color: rgb(181, 197, 185);
+}
+.probablyDumbContainer:active{
+  background-color: rgb(166, 166, 166);
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* Map */

@@ -125,7 +125,7 @@ function initMap() {
       console.log(details);
       console.log(details.reviews[0].text);
       //helper for creating a unique id for each section
-      var infoID = details.name.split(" ").join("");
+      var infoID = details.name.replace(/[.\s]/g, "");
       console.log(infoID); 
 
       let parkContents = document.createElement("div");
@@ -165,7 +165,7 @@ function makeYourMark(userLatLng, map, placeName){
   title: placeName,
   map: map
 });
-var placeID = placeName.split(" ").join("");
+var placeID = placeName.replace(/[.\s]/g, "");
    
 
 var infowindow = new google.maps.InfoWindow({
