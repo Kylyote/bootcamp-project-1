@@ -17,8 +17,8 @@ document.querySelector("#how-to-link").addEventListener("click", function (event
 });
 
 
-function fetchWeatherData(city, apiKey) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+function fetchWeatherData(latitude, longitude) {
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 
   // PUT IN WEATHER, TEMPERATURE, AND WIND SPEED  
   fetch(apiUrl)
