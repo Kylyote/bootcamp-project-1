@@ -408,6 +408,18 @@ footer li {
     left: 10vw;
   }
 }
+
+.info-window{
+  background-color: var(--green);
+  margin: 0;
+  border: 0;
+  padding: 13px;
+  border-radius: 5px;
+  font-size: larger;
+  font-weight: 600;
+}
+
+
 @media (max-width: 500px) {
   /* CSS styles for screen size of 800 pixels or less */
 
@@ -444,3 +456,5 @@ footer li {
     display: none;
   }
 }
+
+

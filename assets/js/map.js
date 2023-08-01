@@ -76,17 +76,21 @@ function initMap() {
   });
   
   //search for places in a radius -CF
+  
   var service = new google.maps.places.PlacesService(map);
-  var request = {
-    location: myLatLng,
-    // to convert miles to meters, multiply by 1609.34
-    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VARIABLE BASED ON USER INPUT
-    keyword: 'parks'
-    //type: ['park'] // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS
-  };
+  var keywords = ['park', 'hike', 'trail', 'nature preserve'];
+  var radius = 1000; //still nee to make this a variable
+  
+  keywords.forEach(function(keyword) {
+    var request = {
+      location: myLatLng,
+      radius: radius,
+      keyword: keyword
+    };
+  
   
   service.nearbySearch(request, callback);
-  
+});
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       console.log("results length: " + results.length)
@@ -104,7 +108,7 @@ function initMap() {
         lat: parseFloat(latitude),
         lng: parseFloat(longitude)
       };
-  makeYourMark(userLatLng, map)
+  makeYourMark(userLatLng, map, place.name)
         let request = {
           placeId: place.place_id,
           fields: ['name','reviews','opening_hours','rating']
@@ -147,13 +151,26 @@ function initMap() {
 
 runWithUserInput(defaultLocation);
 
-function makeYourMark(userLatLng, map){
-new google.maps.Marker({
+function makeYourMark(userLatLng, map, placeName){
+  var marker = new google.maps.Marker({
   position: userLatLng,
   icon: {
     url: './assets/images/parkIcon.svg',
     
   },
-  title: "My location",
+  title: placeName,
   map: map
-});}
+});
+var infowindow = new google.maps.InfoWindow({
+  content: `<div class='info-window'>${placeName}</div>`
+});
+
+
+marker.addListener('mouseover', function() {
+  infowindow.open(map, marker);
+});
+
+marker.addListener('mouseout', function() {
+  infowindow.close();
+});
+}
