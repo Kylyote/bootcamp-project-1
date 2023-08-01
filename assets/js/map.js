@@ -95,6 +95,16 @@ function initMap() {
         console.log(results.length);
         console.log(place);
         //Making object to feed into giveTitleDetails
+      var latitude = place.geometry.location.lat();
+      var longitude = place.geometry.location.lng();
+
+      console.log("Latitude: " + latitude);
+      console.log("Longitude: " + longitude);
+      let userLatLng = {
+        lat: parseFloat(latitude),
+        lng: parseFloat(longitude)
+      };
+  makeYourMark(userLatLng, map)
         let request = {
           placeId: place.place_id,
           fields: ['name','reviews','opening_hours','rating']
@@ -132,15 +142,18 @@ function initMap() {
   }
 
   //adds custom marker icon -CF
-  new google.maps.Marker({
-    position: myLatLng,
-    icon: {
-      url: './assets/images/parkIcon.svg',
-      
-    },
-    title: "My location",
-    map: map
-  });
+
 }
 
 runWithUserInput(defaultLocation);
+
+function makeYourMark(userLatLng, map){
+new google.maps.Marker({
+  position: userLatLng,
+  icon: {
+    url: './assets/images/parkIcon.svg',
+    
+  },
+  title: "My location",
+  map: map
+});}
