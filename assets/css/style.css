@@ -363,4 +363,93 @@ footer li {
   font-size: small;
   padding: 0;
 }
-
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*  Changing CSS elements at different screen sizes */
+@media (max-width: 800px) {
+    /* CSS styles for screen size of 800 pixels or less */
+    
+    .overlay-form {
+        z-index: 1;
+        transform: translate(0%);
+        max-height: 850px;
+        margin: 8px;
+        
+      }
+    
+      .maps-overlay-form{
+        width: 84vw;
+        position: relative;
+        
+      }
+    
+     #maps-form{
+        box-shadow: 0 0 0px 4px rgb(91, 115, 91);
+     }
+    
+     .search-outputs{
+        height: 60vw;
+        max-height: 775px;
+        overflow: auto;
+        border-radius:   15px 15px 0;
+     }
+     .overlay-results{
+        position: absolute;
+        top: 140vw;
+        max-width: 1000px;
+        height: 90vw;
+        max-height: 910px;
+        background-color: var(--vanilla);
+        border: 7px solid var(--green);
+        border-left:10px solid var(--green) ;
+        border-radius:  25px  ;
+      }
+      #weather-data {
+        display: none;
+      }
+      .article-container{
+        position: absolute;
+        top: 220vw;
+        left: 10vw;
+      }
+    
+  }
+  @media (max-width: 500px) {
+    /* CSS styles for screen size of 800 pixels or less */
+    
+    
+      .maps-overlay-form{
+        width: 82vw;
+        position: relative;
+        
+      }
+    
+      .article-container{
+        top: 230vw;
+      }
+      footer{
+        margin-top: 320vw;
+    }
+    
+     .search-outputs{
+        height: 60vw;
+        max-height: 775px;
+        overflow: auto;
+        border-radius:   15px 15px 0;
+     }
+     .overlay-results{
+        position: absolute;
+        top: 160vw;
+        max-width: 1000px;
+        height: 90vw;
+        max-height: 910px;
+        background-color: var(--vanilla);
+        border: 7px solid var(--green);
+        border-left:10px solid var(--green) ;
+        border-radius:  25px  ;
+      }
+      #weather-data {
+        display: none;
+      }
+    
+  }
+  
