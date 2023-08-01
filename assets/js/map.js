@@ -9,7 +9,8 @@ const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
 function runSearch(){
   const userCity = document.querySelector('#city-form-input').value;
   console.log(userCity)
-  
+  var userRadius= document.querySelector("#distance-radius").value;
+  console.log(userRadius)
   const userZip = document.querySelector('#zip-form-input').value;
   
   if (userZip !== "") {
@@ -19,6 +20,9 @@ function runSearch(){
     runWithUserInput(userCity)
     console.log(userCity)
   }
+  userCity.value="";
+  userZip.value="";
+ document.querySelector('#maps-form').reset();
 }
 // console.log(userCity)
 
