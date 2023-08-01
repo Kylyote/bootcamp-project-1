@@ -4,8 +4,6 @@ let defaultLocation = '95616';
 //code for response from Zip -CF
 const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
 
-const testZipCode = '95610';
-
 // this is the function to actually kicks off the start of the search -CF 
 // I decided to prioritize ZIP Code because it is usually more accurate, however, if there is no ZIP Code, it will default to city=CF
 function runSearch(){
