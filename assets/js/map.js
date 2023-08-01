@@ -137,7 +137,7 @@ function initMap(latitude, longitude, userRadius) {
       parkContents.innerHTML = `
       <div id="${infoID}" class="mini-box-justforxample side-by-side align-spaced">
       <p class="location-title">${details.name}</p>
-      <p class="distance">7.5mi</p>
+     
       </div>
       <div class="expanded-box more-location-info">
       <p class="more-info" id="description">${details.reviews[0].text}</p>
@@ -156,10 +156,11 @@ function initMap(latitude, longitude, userRadius) {
 
   //adds custom marker icon -CF
 
-}
+};
 
-runWithUserInput(defaultLocation, defaultRadius);
-
+window.onload = function() {  
+  runWithUserInput(defaultLocation, defaultRadius)
+};
 function makeYourMark(userLatLng, map, placeName){
   var marker = new google.maps.Marker({
   position: userLatLng,
