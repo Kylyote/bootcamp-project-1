@@ -8,7 +8,7 @@ const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
 const testZipCode = '95610';
 
 // this is the function to actually kicks off the start of the search -CF 
-// I decided to prioritize ZIP Code because it is usually more accurate, however, if there is no ZIP Code, it will default to city
+// I decided to prioritize ZIP Code because it is usually more accurate, however, if there is no ZIP Code, it will default to city=CF
 function runSearch(){
 const userCity = document.querySelector('#city-form-input').value;
 console.log(userCity)
@@ -82,8 +82,8 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   var request = {
     location: myLatLng,
-    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VARIABLE BASED ON USER INPUT
-    keyword: 'parks' // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS
+    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VARIABLE BASED ON USER INPUT -CF
+    keyword: 'parks' // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS -CF
   };
 
   service.nearbySearch(request, callback);
