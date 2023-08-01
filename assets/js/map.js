@@ -1,9 +1,5 @@
-// Making code to fill search result box
-let outputBox = document.querySelector("#search-details");
-
 //sets initial search location and eventually radius -CF
-var lati = '38.5367299382404'
-var longi = '-121.75132258093318'
+let defaultLocation = '95616';
 
 //code for response from Zip -CF
 const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
@@ -48,6 +44,8 @@ function runWithUserInput (userInput){
     lati = latitude
     longi = longitude
     
+    let outputBox = document.querySelector("#search-details");
+    outputBox.innerHTML = "";
     fetchWeatherData(latitude, longitude);
     initMap(latitude, longitude)
   })
@@ -94,7 +92,6 @@ function initMap() {
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       console.log("results length: " + results.length)
-      outputBox.innerHTML = "";
       for (var i = 0; i < results.length; i++) {
         var place = results[i];
         console.log(results.length);
@@ -115,34 +112,37 @@ function initMap() {
       if (status === google.maps.places.PlacesServiceStatus.OK)
       console.log(details);
       console.log(details.reviews[0].text);
-      let parkContent = `<div class="output">
+      let parkContents = document.createElement("div");
+      parkContents.innerHTML = `<div class="output">
       <div class="mini-box-justforxample side-by-side align-spaced">
       <p class="location-title">${details.name}</p>
       <p class="distance">7.5mi</p>
       </div>
       <div class="expanded-box more-location-info">
-              <p class="more-info" id="description">${details.reviews[0].text}</p>
-              <p class="more-info" id="hours">9am-5pm</p>
-              <div class="side-by-side">
-                  <p class="more-info">Website:</p>
-                  <p class="more-info" id="website">something.com</p>
-              </div>
-              <p class="more-info" id="go-to">open in google maps</p>
-          </div>
-        </div>`;
-        outputBox.appendChild(parkContent);
+      <p class="more-info" id="description">${details.reviews[0].text}</p>
+      <p class="more-info" id="hours">9am-5pm</p>
+      <div class="side-by-side">
+      <p class="more-info">Website:</p>
+      <p class="more-info" id="website">something.com</p>
+      </div>
+      <p class="more-info" id="go-to">open in google maps</p>
+      </div>
+      </div>`;
+      let outputBox = document.querySelector("#search-details");
+      outputBox.appendChild(parkContents);
     });
   }
 
-//adds custom marker icon -CF
+  //adds custom marker icon -CF
   new google.maps.Marker({
     position: myLatLng,
     icon: {
       url: './assets/images/parkIcon.svg',
-     
+      
     },
     title: "My location",
     map: map
   });
 }
 
+runWithUserInput(defaultLocation);
