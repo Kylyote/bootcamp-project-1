@@ -43,7 +43,7 @@ function fetchWeatherData(latitude, longitude) {
       var weather = data.weather[0].main;
             
 if (weather === 'Clouds'){
-document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/cloudy.svg" alt="">`;
+document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/overcast.svg" alt="">`;
 } else if (weather === 'Rain'){
 document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/rainy.svg" alt="">`;
 } else if (weather === 'Clear'){
