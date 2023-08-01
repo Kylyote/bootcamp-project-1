@@ -124,9 +124,13 @@ function initMap() {
       if (status === google.maps.places.PlacesServiceStatus.OK)
       console.log(details);
       console.log(details.reviews[0].text);
+      //helper for creating a unique id for each section
+      var infoID = details.name.split(" ").join("");
+      console.log(infoID); 
+
       let parkContents = document.createElement("div");
-      parkContents.innerHTML = `<div class="output">
-      <div class="mini-box-justforxample side-by-side align-spaced">
+      parkContents.innerHTML = `
+      <div id="${infoID}" class="mini-box-justforxample side-by-side align-spaced">
       <p class="location-title">${details.name}</p>
       <p class="distance">7.5mi</p>
       </div>
@@ -139,7 +143,7 @@ function initMap() {
       </div>
       <p class="more-info" id="go-to">open in google maps</p>
       </div>
-      </div>`;
+      `;
       let outputBox = document.querySelector("#search-details");
       outputBox.appendChild(parkContents);
     });
@@ -161,6 +165,9 @@ function makeYourMark(userLatLng, map, placeName){
   title: placeName,
   map: map
 });
+var placeID = placeName.split(" ").join("");
+   
+
 var infowindow = new google.maps.InfoWindow({
   content: `<div class='info-window'>${placeName}</div>`
 });
@@ -168,6 +175,16 @@ var infowindow = new google.maps.InfoWindow({
 
 marker.addListener('mouseover', function() {
   infowindow.open(map, marker);
+});
+
+marker.addListener('click', function(event) {   
+  console.log(placeID);
+  var container = document.getElementById("container"); 
+  var section = document.querySelector(`#${placeID}`);
+  section.scrollIntoView();
+  container.scrollIntoView();
+  //hande mouse click functionality;
+  return false;
 });
 
 marker.addListener('mouseout', function() {
