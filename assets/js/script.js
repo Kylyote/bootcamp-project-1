@@ -1,13 +1,5 @@
-// Adding potential variables to use to access the document elements
-let addressCity = document.querySelector(".text");
-let addressState = document.querySelector(".state-dropdown");
-let addressCode = document.querySelector(".postal-code");
-let distanceRadius = document.querySelector("#distanceRadius");
-let submitBtn = document.querySelector("#searchBtn");
-let distanceRadiusChange = 0;
-
-
 //Smooth scroll on how-to
+// Look into way to make this just CSS or HTML if possible. 
 document.querySelector("#how-to-link").addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -52,27 +44,14 @@ document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/w
 document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/weatherIcons/snow.svg" alt="">`;
 }
        
-        
     })
     .catch(error => {
       console.error('Error fetching weather data:', error);
     });
 }
 
-// Block of code copied from Google's maps platform
-// let map;
-
-// async function initMap() {
-//   const { Map } = await google.maps.importLibrary("maps");
-
-//   map = new Map(document.querySelector("map"), {
-//     center: { lat: -34.397, lng: 150.644 },
-//     zoom: 8,
-//   });
-// }
-
 const apiKey = '3345d74a687b8041b547bb45348451f6';
-const city = 'Sacramento';
+const city = 'Davis';
 fetchWeatherData(city, apiKey);
 
 
