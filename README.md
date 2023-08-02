@@ -21,6 +21,14 @@ A Collaborative Project On Developing A Front-End Application For A Web Browser 
 
 ## Future Developments
 
+1. Adding Trail maps
+2. Add Hiking and Climbing areas (areas more specific to outdoor activities and recreation)
+3. Allowing users to input reviews, photos, and information about locations 
+4. Creating an account system where a user can log in and access information 
+5. Adding more resources for the user to access such as links to park area websites, nearby attractions and vendors, and nearby emergency/general medical services etc.
+6. Add a library of resources for both new and experienced outdoor lovers with info such as what to take, how to be safe, and how to navigate, etc.
+
+
 ## Deployed Page URL
 
 - https://kylyote.github.io/bootcamp-project-1/index.html
