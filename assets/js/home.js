@@ -12,10 +12,9 @@ document.addEventListener("DOMContentLoaded", function() {
       if (event.key === "Enter") {
         event.preventDefault();
         runFromHP();
-      
+      }
     });
     
-    }
   });
 //The runFromHP function is called when the Enter key is pressed on the index HTML page. It retrieves the values of the distance, zip, and city input fields. -CF
 function runFromHP() {
