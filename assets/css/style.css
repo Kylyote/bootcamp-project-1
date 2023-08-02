@@ -172,7 +172,7 @@ header {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* purely visual testing end */
 
-.mini-box {
+.dropdown {
   background-color: rgb(176, 193, 176);
   border: 4px solid var(--green);
   border-radius: 15px;
@@ -189,19 +189,19 @@ header {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* result expanded box */
 
-.mini-box {
+.dropdown {
   border-radius: 15px 15px 0 0;
   border-bottom: none;
 }
-.mini-box:hover {
-  background-color: #f1ede2;
+.dropdown:hover {
+  background-color: #b0c8b2;
   cursor: pointer;
 }
-.mini-box:active {
+.dropdown:active {
   background-color: rgb(170, 172, 171);
 }
 
-.expanded-box {
+.dropdown-content {
   background-color: var(--vanilla);
   border-radius: 0 0 15px 15px;
   border: 4px solid var(--green);

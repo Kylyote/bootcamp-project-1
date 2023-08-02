@@ -1,5 +1,11 @@
-//sets initial search location and eventually radius -CF
 
+
+function reload() {
+  location.reload();
+}
+
+
+//sets initial search location and eventually radius -CF
 function access() {
   const storedData = localStorage.getItem('myObject');
   const parsedObject = JSON.parse(storedData);
@@ -27,7 +33,6 @@ defaultRadius = parsedObject.radius
 
 
 var pageURL = window.location.href
-var indexURL = "index.html"
 var mapsURL = "maps.html"
 
 if (pageURL.includes(mapsURL)) {
@@ -46,7 +51,6 @@ if (pageURL.includes(mapsURL)) {
 });}
 addEventToMap()
 }
-
 
 
 //  window.location.href = "maps.html";
@@ -106,6 +110,8 @@ function runWithUserInput (userInput, userRadius){
   .catch(error => {
     console.error('Error:', error);
   });
+
+
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Google code for getting a map.
@@ -185,21 +191,23 @@ function initMap(latitude, longitude, userRadius) {
       var infoID = details.name.replace(/[.\s-']/g, "");
       console.log(infoID); 
 
+      let placeOpeningHours = details.opening_hours ? details.opening_hours.weekday_text.join('<br>') : 'Opening hours not available';
+      console.log(placeOpeningHours)
+
       let parkContents = document.createElement("div");
-      parkContents.innerHTML = `
-      <div id="${infoID}" class="mini-box-justforxample side-by-side align-spaced">
+      let googleMapsLink = `https://www.google.com/maps/place/${encodeURIComponent(details.name)}`;
+      
+      parkContents.innerHTML = `<div id="${infoID}" class="dropdown side-by-side align-spaced" style="margin-top: 5px;">
       <p class="location-title">${details.name}</p>
      
       </div>
-      <div class="expanded-box more-location-info">
-      <p class="more-info" id="description">${details.reviews[0].text}</p>
-      <p class="more-info" id="hours">9am-5pm</p>
-      <div class="side-by-side">
-      <p class="more-info">Website:</p>
-      <p class="more-info" id="website">something.com</p>
-      </div>
-      <p class="more-info" id="go-to">open in google maps</p>
-      </div>
+      <div class="dropdown-content more-location-info">
+      <p class="more-info" id="description" >${details.reviews[0].text}</p>
+      <p class="more-info" id="hours" style="text-decoration:underline; font-size: large;">Hours of Operation</p>
+      <p class="more-info" id="hours" style="font-size: medium;">${placeOpeningHours}</p>
+      
+      <a class="more-info" href="${googleMapsLink}" target="_blank" id="go-to">open in google maps</a>
+      </div> 
       `;
       let outputBox = document.querySelector("#search-details");
       outputBox.appendChild(parkContents);
@@ -210,6 +218,7 @@ function initMap(latitude, longitude, userRadius) {
 
 };
 
+// this adds the customer marker to each of the locations -CFlisted
 function makeYourMark(userLatLng, map, placeName){
   var marker = new google.maps.Marker({
   position: userLatLng,
@@ -222,12 +231,12 @@ function makeYourMark(userLatLng, map, placeName){
 });
 var placeID = placeName.replace(/[.\s-']/g, "");
    
-
+//this part is adding custom content to the popup window -CF
 var infowindow = new google.maps.InfoWindow({
   content: `<div class='info-window'>${placeName}</div>`
 });
 
-
+//this
 marker.addListener('mouseover', function() {
   infowindow.open(map, marker);
 });
@@ -238,11 +247,14 @@ marker.addListener('click', function(event) {
   var section = document.querySelector(`#${placeID}`);
   section.scrollIntoView();
   container.scrollIntoView();
-  //hande mouse click functionality;
   return false;
 });
+
 
 marker.addListener('mouseout', function() {
   infowindow.close();
 });
 }
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
