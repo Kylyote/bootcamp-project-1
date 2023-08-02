@@ -2,6 +2,7 @@ var pageURL = window.location.href
 var indexURL = "index.html"
 var mapsURL = "maps.html"
 
+//An event listener is added to the keydown event on the homePage element. When the Enter key is pressed, it prevents the default behavior and calls the runFromHP function. -CF
 document.addEventListener("DOMContentLoaded", function() {
     var homePage = document.querySelector('.home-page');
     if (pageURL.includes(indexURL)) {
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     }
   });
-  
+//The runFromHP function is called when the Enter key is pressed on the index HTML page. It retrieves the values of the distance, zip, and city input fields. -CF
 function runFromHP() {
     
   distance = document.querySelector('#distance-radius').value

@@ -1,11 +1,10 @@
-
+//before you ask. yes i did have phind help me write some of these really descriptive comments... what can i say, i like efficiency -CF
 
 function reload() {
   location.reload();
 }
 
-
-//sets initial search location and eventually radius -CF
+//The access function retrieves data from the localStorage and parses it into a JavaScript object. It then sets the values of defaultLocation and defaultRadius based on the parsed object. After that, it creates a new object with a radius of 804 and a location of 95616. It converts the object to a JSON string and stores it in the localStorage as myObject.  -CF
 function access() {
   const storedData = localStorage.getItem('myObject');
   const parsedObject = JSON.parse(storedData);
@@ -30,6 +29,7 @@ defaultRadius = parsedObject.radius
   console.log("i reset a thing " + updatedParsedObject.location);
 }
 
+//The addEventToMap function adds an event listener to the keydown event on the .map-page element. When the Enter key is pressed, it prevents the default behavior and calls the runSearch function. -CF
 
 
 var pageURL = window.location.href
@@ -82,7 +82,7 @@ function runSearch(){
 }
 // console.log(userCity)
 
-// function for running research with user input-CF 
+//The runWithUserInput function is called by the runSearch function. It performs a fetch request to the Google Geocoding API to retrieve the latitude, longitude, city, and state based on the user input (either zip or city). It then logs the retrieved data and calls the fetchWeatherData and initMap functions with the latitude, longitude, and userRadius values.-CF 
 function runWithUserInput (userInput, userRadius){
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&key=${mapApiKey}`)
   .then(response => response.json())
@@ -117,6 +117,7 @@ function runWithUserInput (userInput, userRadius){
 // Google code for getting a map.
 "use strict";
 
+//The initMap function initializes a Google Map with the provided latitude and longitude values. It sets various options for the map, such as zoom, controls, and map type control position. It then creates a PlacesService object and performs a nearby search for places within the specified radius using the nearbySearch method. It provides a callback function that is called with the results and status of the search. Inside the callback, it loops through the results and creates markers on the map for each place. It also calls the giveTitleDetails function to retrieve additional details for each place. -CF
 function initMap(latitude, longitude, userRadius) {
   let myLatLng = {
     
@@ -181,20 +182,24 @@ function initMap(latitude, longitude, userRadius) {
     }
   }
   
-  //Code for getting details
+  //The giveTitleDetails function is called by the callback function in the initMap function. It performs a getDetails request to the PlacesService with the place ID of each place to retrieve more detailed information. It logs the details and creates HTML elements to display the information on the page. -CF
   function giveTitleDetails(request) {
     service.getDetails(request,function(details, status){
       if (status === google.maps.places.PlacesServiceStatus.OK)
       console.log(details);
       console.log(details.reviews[0].text);
+
       //helper for creating a unique id for each section
-      var infoID = details.name.replace(/[.\s-']/g, "");
+      var infoID = details.name.replace(/[.\s-',]/g, "");
       console.log(infoID); 
 
+      //retrieves opening hours
       let placeOpeningHours = details.opening_hours ? details.opening_hours.weekday_text.join('<br>') : 'Opening hours not available';
       console.log(placeOpeningHours)
 
       let parkContents = document.createElement("div");
+
+      //retrieves google place id and puts it into a link
       let googleMapsLink = `https://www.google.com/maps/place/${encodeURIComponent(details.name)}`;
       
       parkContents.innerHTML = `<div id="${infoID}" class="dropdown side-by-side align-spaced" style="margin-top: 5px;">
@@ -236,7 +241,7 @@ var infowindow = new google.maps.InfoWindow({
   content: `<div class='info-window'>${placeName}</div>`
 });
 
-//this
+//this allows the markers to function
 marker.addListener('mouseover', function() {
   infowindow.open(map, marker);
 });
