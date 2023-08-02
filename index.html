@@ -13,12 +13,13 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/style.css"/>
     </head>
+
     <body id="default-text-color" >
         <header class="dark-grey">
             <div class="grid-x dark-grey" >
                 <div class="title-area float-center">
                   <div class="name-of-site">
-                    <a href="#">
+                    
                       <h1 id="default-text-color" class="text-center">
                         <img src="./assets/images/whiteLogo.svg"/>Natural Spaces</h1></a>
                   </div>
@@ -42,7 +43,7 @@
     
        <div class="form-section overlay-form" >
         
-    <form class="search-box card float-center"  >
+    <form class="search-box home-page card float-center"  >
                 <div class="location-form" style="width: 26rem;" style="padding: 10px;">
                   <h4 class="text-center " style="font-weight: 800; margin: 15px;">Search for green spaces</h4>
                   
@@ -51,16 +52,17 @@
                   <label class="text-center"  for="city-form-input
                   ">City Name</label>
                   <input type="text" class="search-form-input
-                   float-center" style="width: 100%;" id="city-form-input
-                   ">
+                   float-center" style="width: 100%;" id="city-form-input">
                 </div>
             <div class="radius-box">
                 <label class="text-center" for="distance-radius" >Radius (mi)</label>
                 <select name="distance" style="width: 100%;" id="distance-radius" class="search-form-input float-center" >
-                    <option value="5">1</option>
-                    <option value="5">5</option>
-                    <option value="5">10</option>
-                    <option value="5">15</option>
+                  <option value="804" disabled selected>mi</option>
+                  <option value= "804">.5</option>
+                  <option value="1609">1</option>
+                  <option value="8046">5</option>
+                  <option value="16090">10</option>
+                  <option value="32180">15</option>
                 </select>
             </div>
         </div>
@@ -68,11 +70,10 @@
                 <div class="zip-box"> 
                     <label class="text-center" for="zip-form-input" >Zip Code</label>
                   <input type="text" style="width: 100%;" class="search-form-input
-                   float-center" id="zip-form-input
-                  ">
+                   float-center" id="zip-form-input">
                 </div>
                 <div class="button-box">
-                  <button type="submit" class="float-center sign-in-form-button"><img src="./assets/images/searchIcon.svg"/></button>
+                  <div type="submit" class="float-center sign-in-form-button" onclick="runFromHP()"><img src="./assets/images/searchIcon.svg"/></div>
                 </div>
         </div>
                 </div>
@@ -150,7 +151,8 @@
                 </ul>
             </div>
         </footer>
+        <script src="./assets/js/home.js"></script>
+        
        
-        <script src="./assets/js/script.js"></script>
     </body>
 </html>

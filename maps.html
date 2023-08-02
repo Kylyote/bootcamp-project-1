@@ -17,7 +17,7 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA&libraries=places&callback=initMap"></script>
     
   </head>
-  <body id="default-text-color">
+  <body onload="runWithUserInput(defaultLocation, defaultRadius)" id="default-text-color">
     <header class="dark-grey" id="container">
       <div class="grid-x dark-grey">
         <div class="title-area float-center">
@@ -53,7 +53,7 @@
            <div class="overlay-results side-by-side">
                  <div class="form-section overlay-form  maps-overlay-form">
                     <div class="top-to-bottom">
-                        <form class="search-box card float-left" id="maps-form"style="width: 310px; height: 60px;">
+                        <form class="search-box map-page card float-left" id="maps-form"style="width: 310px; height: 60px;">
             <div class="location-form">
               <div class="map-search-box">
                 <div class="detail-box city-form">
@@ -102,7 +102,7 @@
                   <div class="probablyDumbContainer">
                   <div
                     
-                    class="float-center sign-in-form-button" onclick="runSearch()">
+                    class="float-center search-form-button" onclick="runSearch()">
                    <img src="./assets/images/searchIcon.svg"/>
                   </div>
                 </div>

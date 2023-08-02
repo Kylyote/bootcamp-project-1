@@ -1,13 +1,57 @@
 //sets initial search location and eventually radius -CF
-let defaultLocation = '95616';
-let defaultRadius = '804'
 
-document.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    runSearch()
-  }
-});
+function access() {
+  const storedData = localStorage.getItem('myObject');
+  const parsedObject = JSON.parse(storedData);
+
+  console.log("i stored a thing " + parsedObject.radius);
+  console.log("i stored a thing " + parsedObject.location);
+
+defaultLocation = parsedObject.location;
+defaultRadius = parsedObject.radius
+
+  const myObject = {
+    radius: 804,
+    location: 95616
+  };
+  const jsonString = JSON.stringify(myObject);
+  localStorage.setItem('myObject', jsonString);
+
+  const updatedStoredData = localStorage.getItem('myObject');
+  const updatedParsedObject = JSON.parse(updatedStoredData);
+
+  console.log("i reset a thing " + updatedParsedObject.radius);
+  console.log("i reset a thing " + updatedParsedObject.location);
+}
+
+
+
+var pageURL = window.location.href
+var indexURL = "index.html"
+var mapsURL = "maps.html"
+
+if (pageURL.includes(mapsURL)) {
+  console.log("maps HTML page has loaded!");
+  access()
+ function addEventToMap(){
+ document.addEventListener("DOMContentLoaded", function() {
+   var mapPage = document.querySelector('.map-page');
+
+   mapPage.addEventListener("keydown", function(event) {
+     if (event.key === "Enter") {
+       event.preventDefault();
+       runSearch();
+     }
+   });
+});}
+addEventToMap()
+}
+
+
+
+//  window.location.href = "maps.html";
+ 
+
 
 //code for response from Zip -CF
 const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
@@ -69,8 +113,9 @@ function runWithUserInput (userInput, userRadius){
 
 function initMap(latitude, longitude, userRadius) {
   let myLatLng = {
-    lat: parseFloat(lati),
-    lng: parseFloat(longi)
+    
+    lat: parseFloat(latitude),
+    lng: parseFloat(longitude)
   };
   console.log(myLatLng)
   let map = new google.maps.Map(document.getElementById("gmp-map"), {
@@ -165,9 +210,6 @@ function initMap(latitude, longitude, userRadius) {
 
 };
 
-window.onload = function() {  
-  runWithUserInput(defaultLocation, defaultRadius)
-};
 function makeYourMark(userLatLng, map, placeName){
   var marker = new google.maps.Marker({
   position: userLatLng,
