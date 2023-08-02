@@ -5,14 +5,14 @@ var mapsURL = "maps.html"
 //An event listener is added to the keydown event on the homePage element. When the Enter key is pressed, it prevents the default behavior and calls the runFromHP function. -CF
 document.addEventListener("DOMContentLoaded", function() {
     var homePage = document.querySelector('.home-page');
-    if (pageURL.includes(indexURL)) {
+    
       console.log("index HTML page has loaded!");
       
       homePage.addEventListener("keydown", function(event) {
       if (event.key === "Enter") {
         event.preventDefault();
         runFromHP();
-      }
+      
     });
     
     }
