@@ -2,6 +2,13 @@
 let defaultLocation = '95616';
 let defaultRadius = '804'
 
+document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    runSearch()
+  }
+});
+
 //code for response from Zip -CF
 const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
 
