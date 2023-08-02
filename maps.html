@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width" initial-scale="1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Natural Spaces</title>
-    <link rel="icon" href="./assets/images/blackLogo.svg" media="prefers-color-scheme: light"/>
-    <link rel="icon" href="./assets/images/whiteLogo.svg" media="prefers-color-scheme: dark"/>
+    <link rel="icon" href="./assets/images/blackLogo.svg" media="(prefers-color-scheme: light)"/>
+    <link rel="icon" href="./assets/images/whiteLogo.svg" media="(prefers-color-scheme: dark)"/>
     <link />
     <link
       rel="stylesheet"
@@ -18,7 +18,7 @@
     
   </head>
   <body id="default-text-color">
-    <header class="dark-grey">
+    <header class="dark-grey" id="container">
       <div class="grid-x dark-grey">
         <div class="title-area float-center">
           <div class="name-of-site">
@@ -39,17 +39,17 @@
             <!-- Aligned to the space around -->
             <a href="maps.html" id="maps-link" class="cell text-center small-2 nav-group maps-nav">Maps</a>
             <a href="index.html" id="home-link" class="cell text-center small-2 nav-group home-nav">Home</a>
-            <a href="#" id="how-to-link" class="cell small-2 text-center nav-group how-to-nav">How-to</a>
+            <a href="#" id="how-to-link" class="cell small-2 text-center nav-group how-to-nav">How-To</a>
             </div>
           </div>
         </section>
       </nav>
     </header>
   <main>
-      <section class="map float-center">
+      <section class="map float-center"    >
         
           <div id="gmp-map"></div>
-    <div class="include-weather-data ">
+    <div class="include-weather-data" >
            <div class="overlay-results side-by-side">
                  <div class="form-section overlay-form  maps-overlay-form">
                     <div class="top-to-bottom">
@@ -67,7 +67,7 @@
                     type="text"
                     class="search-form-input float-center"
                     style="width: 100%"
-                    id="city-form-input" />
+                    id="city-form-input" placeholder="Davis" />
 
                 </div>
 
@@ -79,7 +79,7 @@
                     type="text"
                     style="width: 100%"
                     class="search-form-input float-center"
-                    id="zip-form-input" />
+                    id="zip-form-input" placeholder="95616" />
                 </div>
                 <div class="detail-box">
                   <label class="text-center" for="distance-radius"
@@ -90,99 +90,30 @@
                     style="width: 100%"
                     id="distance-radius"
                     class="search-form-input float-center">
-                    <option value="5">1</option>
-                    <option value="5">5</option>
-                    <option value="5">10</option>
-                    <option value="5">15</option>
+                    <option value="804" disabled selected>mi</option>
+                    <option value= "804">.5</option>
+                    <option value="1609">1</option>
+                    <option value="8046">5</option>
+                    <option value="16090">10</option>
+                    <option value="32180">15</option>
                   </select>
                 </div>
                 <div class="detail-box submit-form">
+                  <div class="probablyDumbContainer">
                   <div
                     
                     class="float-center sign-in-form-button" onclick="runSearch()">
                    <img src="./assets/images/searchIcon.svg"/>
                   </div>
                 </div>
+                </div>
               </div>
             </div>
                         </form>
 
           <section style="color: black;" id="search-details" class="search-outputs">
-            <div class="output">
-                <div class="mini-box side-by-side align-spaced">
-                  <p class="location-title">Title of park</p>
-                  <p class="distance">7.5mi</p>
-                </div>
-                <div class="expanded-box more-location-info">
-                   
-                    <p class="more-info"id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur nam esse maxime atque ipsam, quam numquam natus dolorem non, sit autem, molestias in eos necessitatibus. Illum, voluptate.</p>
-                    <p class="more-info"id="hours">9am-5pm</p>
-                    <div class="side-by-side">
-                    <p class="more-info">Website:</p>
-                    <p class="more-info"id="website">something.com</p>
-                    </div>
-                    
-                    <p class="more-info"d="go-to">open in google maps</p>
-                </div>
-            </div>
-            <div class="output">
-                <div class="mini-box-justforxample side-by-side align-spaced">
-                  <p class="location-title">Title of park</p>
-                  <p class="distance">7.5mi</p>
-                </div>
-                <div class="expanded-box more-location-info hide">
-                    <p class="more-info"id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur nam esse maxime atque ipsam, quam numquam natus dolorem non, sit autem, molestias in eos necessitatibus. Illum, voluptate.</p>
-                    <p class="more-info"id="hours">9am-5pm</p>
-                    <div class="side-by-side">
-                    <p class="more-info">Website:</p>
-                    <p class="more-info"id="website">something.com</p>
-                    </div>
-                    
-                    <p class="more-info"d="go-to">open in google maps</p>
-                </div>  
-            </div>
-            <div class="output">
-                <div class="mini-box-justforxample side-by-side align-spaced">
-                <p class="location-title">Title of park</p>
-                <p class="distance">7.5mi</p>
-            </div> 
-            </div>
-            <div class="output">
-                <div class="mini-box-justforxample side-by-side align-spaced">
-                <p class="location-title">Title of park</p>
-                <p class="distance">7.5mi</p>
-            </div> 
-            </div>
-            <div class="output">
-                <div class="mini-box-justforxample side-by-side align-spaced">
-                <p class="location-title">Title of park</p>
-                <p class="distance">7.5mi</p>
-            </div> 
-            </div>
-            <div class="output">
-                <div class="mini-box-justforxample side-by-side align-spaced">
-                <p class="location-title">Title of park</p>
-                <p class="distance">7.5mi</p>
-            </div> 
-            </div>
-            <div class="output">
-                <div class="mini-box-justforxample side-by-side align-spaced">
-                <p class="location-title">Title of park</p>
-                <p class="distance">7.5mi</p>
-            </div> 
-            </div>
-            <div class="output">
-                <div class="mini-box-justforxample side-by-side align-spaced">
-                <p class="location-title">Title of park</p>
-                <p class="distance">7.5mi</p>
-            </div> 
-            </div>
-            <div class="output">
-                <div class="mini-box-justforxample side-by-side align-spaced">
-                <p class="location-title">Title of park</p>
-                <p class="distance">7.5mi</p>
-            </div> 
-            </div>
+           
+            
           </section>
                     </div>
           

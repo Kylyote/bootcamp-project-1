@@ -1,5 +1,6 @@
 //sets initial search location and eventually radius -CF
 let defaultLocation = '95616';
+let defaultRadius = '804'
 
 //code for response from Zip -CF
 const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
@@ -9,21 +10,25 @@ const mapApiKey = 'AIzaSyCdCvKcnQ665AVlVXI_6FRnSup7eCuGhqA';
 function runSearch(){
   const userCity = document.querySelector('#city-form-input').value;
   console.log(userCity)
-  
+  var userRadius= document.querySelector("#distance-radius").value;
+  console.log(userRadius)
   const userZip = document.querySelector('#zip-form-input').value;
   
   if (userZip !== "") {
-    runWithUserInput(userZip)
+    runWithUserInput(userZip, userRadius)
     console.log(userZip)
   } else if (userCity !== ""){
-    runWithUserInput(userCity)
+    runWithUserInput(userCity, userRadius)
     console.log(userCity)
   }
+  userCity.value="";
+  userZip.value="";
+ document.querySelector('#maps-form').reset();
 }
 // console.log(userCity)
 
 // function for running research with user input-CF 
-function runWithUserInput (userInput){
+function runWithUserInput (userInput, userRadius){
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&key=${mapApiKey}`)
   .then(response => response.json())
   .then(data => {
@@ -45,7 +50,7 @@ function runWithUserInput (userInput){
     let outputBox = document.querySelector("#search-details");
     outputBox.innerHTML = "";
     fetchWeatherData(latitude, longitude);
-    initMap(latitude, longitude)
+    initMap(latitude, longitude, userRadius);
   })
   .catch(error => {
     console.error('Error:', error);
@@ -55,7 +60,7 @@ function runWithUserInput (userInput){
 // Google code for getting a map.
 "use strict";
 
-function initMap() {
+function initMap(latitude, longitude, userRadius) {
   let myLatLng = {
     lat: parseFloat(lati),
     lng: parseFloat(longi)
@@ -76,17 +81,21 @@ function initMap() {
   });
   
   //search for places in a radius -CF
+  
   var service = new google.maps.places.PlacesService(map);
-  var request = {
-    location: myLatLng,
-    // to convert miles to meters, multiply by 1609.34
-    radius: 1000, //  meters NEED TO MAKE THIS A CHANGABLE VARIABLE BASED ON USER INPUT
-    keyword: 'parks'
-    //type: ['park'] // search term "park" "hike" MAYBE NEED TO RUN MULTIPLE TIMES WITH MULTIPLE KEYWORDS
-  };
+  var keywords = ['park', 'hike', 'trail', 'nature preserve'];
+  var radius = userRadius; //still nee to make this a variable
+  console.log(userRadius+"radius");
+  keywords.forEach(function(keyword) {
+    var request = {
+      location: myLatLng,
+      radius: radius,
+      keyword: keyword
+    };
+  
   
   service.nearbySearch(request, callback);
-  
+});
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       console.log("results length: " + results.length)
@@ -95,6 +104,16 @@ function initMap() {
         console.log(results.length);
         console.log(place);
         //Making object to feed into giveTitleDetails
+      var latitude = place.geometry.location.lat();
+      var longitude = place.geometry.location.lng();
+
+      console.log("Latitude: " + latitude);
+      console.log("Longitude: " + longitude);
+      let userLatLng = {
+        lat: parseFloat(latitude),
+        lng: parseFloat(longitude)
+      };
+  makeYourMark(userLatLng, map, place.name)
         let request = {
           placeId: place.place_id,
           fields: ['name','reviews','opening_hours','rating']
@@ -110,11 +129,15 @@ function initMap() {
       if (status === google.maps.places.PlacesServiceStatus.OK)
       console.log(details);
       console.log(details.reviews[0].text);
+      //helper for creating a unique id for each section
+      var infoID = details.name.replace(/[.\s-']/g, "");
+      console.log(infoID); 
+
       let parkContents = document.createElement("div");
-      parkContents.innerHTML = `<div class="output">
-      <div class="mini-box-justforxample side-by-side align-spaced">
+      parkContents.innerHTML = `
+      <div id="${infoID}" class="mini-box-justforxample side-by-side align-spaced">
       <p class="location-title">${details.name}</p>
-      <p class="distance">7.5mi</p>
+     
       </div>
       <div class="expanded-box more-location-info">
       <p class="more-info" id="description">${details.reviews[0].text}</p>
@@ -125,22 +148,52 @@ function initMap() {
       </div>
       <p class="more-info" id="go-to">open in google maps</p>
       </div>
-      </div>`;
+      `;
       let outputBox = document.querySelector("#search-details");
       outputBox.appendChild(parkContents);
     });
   }
 
   //adds custom marker icon -CF
-  new google.maps.Marker({
-    position: myLatLng,
-    icon: {
-      url: './assets/images/parkIcon.svg',
-      
-    },
-    title: "My location",
-    map: map
-  });
-}
 
-runWithUserInput(defaultLocation);
+};
+
+window.onload = function() {  
+  runWithUserInput(defaultLocation, defaultRadius)
+};
+function makeYourMark(userLatLng, map, placeName){
+  var marker = new google.maps.Marker({
+  position: userLatLng,
+  icon: {
+    url: './assets/images/parkIcon.svg',
+    
+  },
+  title: placeName,
+  map: map
+});
+var placeID = placeName.replace(/[.\s-']/g, "");
+   
+
+var infowindow = new google.maps.InfoWindow({
+  content: `<div class='info-window'>${placeName}</div>`
+});
+
+
+marker.addListener('mouseover', function() {
+  infowindow.open(map, marker);
+});
+
+marker.addListener('click', function(event) {   
+  console.log(placeID);
+  var container = document.getElementById("container"); 
+  var section = document.querySelector(`#${placeID}`);
+  section.scrollIntoView();
+  container.scrollIntoView();
+  //hande mouse click functionality;
+  return false;
+});
+
+marker.addListener('mouseout', function() {
+  infowindow.close();
+});
+}

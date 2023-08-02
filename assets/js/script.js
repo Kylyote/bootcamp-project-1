@@ -52,7 +52,7 @@ document.querySelector('.weather-icon').innerHTML = `<img src="./assets/images/w
 
 const apiKey = '3345d74a687b8041b547bb45348451f6';
 const city = 'Davis';
-fetchWeatherData(city, apiKey);
+fetchWeatherData(38.5474428, -121.7765309);
 
 
 
