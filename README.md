@@ -6,9 +6,10 @@ A Collaborative Project On Developing A Front-End Application For A Web Browser 
 
 1. [Acceptance Criteria](#acceptance-criteria)
 2. [Work Completed](#work-completed)
-3. [Deployed Page URL](#deployed-page-url)
-4. [Deployed Page](#deployed-page)
-5. [Credits](#credits)
+3. [Future Developments](#future-developments)
+4. [Deployed Page URL](#deployed-page-url)
+5. [Deployed Page](#deployed-page)
+6. [Credits](#credits)
 
 ## Acceptance Criteria
 
@@ -17,6 +18,8 @@ A Collaborative Project On Developing A Front-End Application For A Web Browser 
 - WHEN the go now button is selected; THEN the user will be sent to Google Maps to obtain navigation information.
 
 ## Work Completed
+
+## Future Developments
 
 ## Deployed Page URL
 
