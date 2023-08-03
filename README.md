@@ -19,6 +19,11 @@ A Collaborative Project On Developing A Front-End Application For A Web Browser 
 
 ## Work Completed
 
+- Whenever a user visits the site, when the home page loads, the user is presented with an input box that allows for text entry of a specifc city or zipcode and a search radius defined by miles.
+- When the user hits the search button, after the map page loads, a map is presented with custom markers that indicate different parks and outdoor recreation areas. The markers change size when th user hovers over them.
+- The side of the map lists all the different parks that are indicated on the map. when each indicator on the map is clicked, that specific park will appear on the list as a priority piece of information.
+- Under each of the park names in the list, the user can read a review of the park, view hours and operations, and can click on a link to Google Maps to grab directions to the park that the user wants to visit
+
 ## Future Developments
 
 1. Adding Trail maps
@@ -27,7 +32,7 @@ A Collaborative Project On Developing A Front-End Application For A Web Browser 
 4. Creating an account system where a user can log in and access information 
 5. Adding more resources for the user to access such as links to park area websites, nearby attractions and vendors, and nearby emergency/general medical services etc.
 6. Add a library of resources for both new and experienced outdoor lovers with info such as what to take, how to be safe, and how to navigate, etc.
-
+7. Add ability to put exact location to more accurately find the closest outdoor locations
 
 ## Deployed Page URL
 
@@ -55,3 +60,4 @@ A Collaborative Project On Developing A Front-End Application For A Web Browser 
 
 - OpenWeather API
 - Google Maps API
+- Foundation CSS
