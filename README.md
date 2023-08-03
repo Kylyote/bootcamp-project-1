@@ -37,10 +37,10 @@ A Collaborative Project On Developing A Front-End Application For A Web Browser 
 ## Deployed Page
 
 ### Home Page
-![kylyote github io_natural-spaces_index html](https://kylyote.github.io/natural-spaces/)
+![kylyote github io_bootcamp-project-1_index html](https://github.com/Kylyote/bootcamp-project-1/assets/135624229/9f1035bd-ff3a-4b2c-b6fa-9ba2611cc3d4)
 
 ### Map Page
-![kylyote github io_natural-spaces_maps html](https://kylyote.github.io/natural-spaces/maps.html)
+![kylyote github io_bootcamp-project-1_maps html](https://github.com/Kylyote/bootcamp-project-1/assets/135624229/740f96a4-8f4b-4c2d-9b95-9ee9c959711b)
 
 ## Credits
 
